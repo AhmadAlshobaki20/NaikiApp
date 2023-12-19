@@ -1,0 +1,13 @@
+There are two case about images's responsive:
+
+1. case 1 (horizantal case) : let suppose we have screen conatin slider --> [it's called image coursel], subtitel and some details about the product at the top of the screen there is a slider 
+so to perform it you should use flatlist and to make it sutable with all screens you should to take into considation some standers
+[width, height] so if you have four images into the slider so the images width should be fit with the screen and the height should 
+set depend on the width it's like a sequare so to do that there are two thisngs: 
+                                                                                1. useWindowsDimenssion(): this return the dimenssion of the screen 
+                                                                                2. aspectRatio : this Calibrate the height depnds on the width and visa versa 
+                                                                                   such as [1:1]
+
+
+2. case 2 (Vertical case) : if you have screen contains two columns of anything you should take into consdration two things
+   first the outter container of column should devied into two part you can see an example if you visit the product screen  
