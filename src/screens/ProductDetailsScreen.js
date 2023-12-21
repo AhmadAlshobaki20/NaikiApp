@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AntDesign, Feather } from "@expo/vector-icons";
 import {
   StyleSheet,
   Text,
@@ -17,8 +18,28 @@ const ProductsScreenDetails = () => {
   // this function return the dimenssion of the phone screen
   const { width } = useWindowDimensions();
 
+  const handleAddToCart = () => {
+    console.log("Hello from add to cart");
+  };
+
+  const handelShare = () => {
+    console.log("hello from share button");
+  };
+
+  const handleClose = () => {
+    console.log("Hello from close button");
+  };
+
   return (
     <View>
+      <View style={styles.iconsWrap}>
+        <TouchableOpacity onPress={handelShare}>
+          <Feather name="share" size={24} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={handleClose}>
+          <AntDesign name="closecircleo" size={24} color="black" />
+        </TouchableOpacity>
+      </View>
       <ScrollView>
         {/* Image Cursoel */}
         <FlatList
@@ -44,12 +65,7 @@ const ProductsScreenDetails = () => {
           <Text style={styles.description}>{product.description}</Text>
         </View>
       </ScrollView>
-      <TouchableOpacity
-        onPress={() => {
-          console.log("hello from button");
-        }}
-        style={styles.btn}
-      >
+      <TouchableOpacity onPress={handleAddToCart} style={styles.btn}>
         <Text style={styles.btnText}>Add to cart</Text>
       </TouchableOpacity>
     </View>
@@ -88,6 +104,17 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "400",
+  },
+  iconsWrap: {
+    justifyContent: "flex-end",
+    flexDirection: "row",
+    position: "absolute",
+    zIndex: 1,
+    alignSelf: "flex-end",
+    alignItems: "center",
+    top: 40,
+    right: 20,
+    gap: 15,
   },
 });
 
