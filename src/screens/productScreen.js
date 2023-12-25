@@ -1,14 +1,30 @@
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
-import Products from "../data/products";
+import { StyleSheet, Image, FlatList, TouchableOpacity } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { ShowProduct } from "../actions/productsActions";
+import { useEffect } from "react";
 
-const ProductsScreen = () => {
+const ProductsScreen = ({ navigation }) => {
+  const Products = useSelector((state) => state?.products);
+  const dispatch = useDispatch();
+
+  const handleShow = (id) => {
+    dispatch(ShowProduct(id));
+  };
+
+  //  we can use useNavigation hook it refer to navigate object
   return (
     <FlatList
       data={Products}
       renderItem={({ item }) => (
-        <View style={styles.itemContainer}>
+        <TouchableOpacity
+          style={styles.itemContainer}
+          onPress={() => {
+            handleShow(item.id);
+            navigation.navigate("ProductDetails");
+          }}
+        >
           <Image source={{ uri: item.image }} style={styles.image} />
-        </View>
+        </TouchableOpacity>
       )}
       keyExtractor={(item) => item.id}
       numColumns={2}

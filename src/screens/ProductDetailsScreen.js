@@ -11,15 +11,19 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import products from "../data/products";
+import { AddToCart } from "../actions/productsActions";
+import { useDispatch, useSelector } from "react-redux";
 
-const ProductsScreenDetails = () => {
-  const product = products[0];
-  // this function return the dimenssion of the phone screen
+const ProductsScreenDetails = ({ navigation }) => {
+  const product = useSelector((state) => state?.selectedProduct);
+
+  // this function return the dimenssions of the phone screen
   const { width } = useWindowDimensions();
 
-  const handleAddToCart = () => {
-    console.log("Hello from add to cart");
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (productId) => {
+    dispatch(AddToCart(productId));
   };
 
   const handelShare = () => {
@@ -37,7 +41,14 @@ const ProductsScreenDetails = () => {
           <Feather name="share" size={24} color="black" />
         </TouchableOpacity>
         <TouchableOpacity onPress={handleClose}>
-          <AntDesign name="closecircleo" size={24} color="black" />
+          <AntDesign
+            name="closecircleo"
+            size={24}
+            color="black"
+            onPress={() => {
+              navigation.navigate("products");
+            }}
+          />
         </TouchableOpacity>
       </View>
       <ScrollView>
@@ -50,22 +61,27 @@ const ProductsScreenDetails = () => {
               style={{ width: width, aspectRatio: 1 }}
             />
           )}
-          keyExtractor={(item, index) => index.toString()}
+          keyExtractor={(item, index) => index}
           horizontal
           showsHorizontalScrollIndicator={false}
           // It for smooth scrolling make sure the image is close
           pagingEnabled
         />
         <View style={{ padding: 20 }}>
-          {/* Titel */}
-          <Text style={styles.titel}>{product.name}</Text>
+          {/* Title */}
+          <Text style={styles.title}>{product.name}</Text>
           {/* Price */}
           <Text style={styles.price}>$ {product.price}</Text>
           {/* Description */}
           <Text style={styles.description}>{product.description}</Text>
         </View>
       </ScrollView>
-      <TouchableOpacity onPress={handleAddToCart} style={styles.btn}>
+      <TouchableOpacity
+        onPress={() => {
+          handleAddToCart(product.id);
+        }}
+        style={styles.btn}
+      >
         <Text style={styles.btnText}>Add to cart</Text>
       </TouchableOpacity>
     </View>
@@ -73,7 +89,7 @@ const ProductsScreenDetails = () => {
 };
 
 const styles = StyleSheet.create({
-  titel: {
+  title: {
     fontSize: 34,
     fontWeight: 500,
     marginVertical: 10,
@@ -95,7 +111,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     borderRadius: 50,
     position: "absolute",
-    bottom: 20,
+    bottom: 5,
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",

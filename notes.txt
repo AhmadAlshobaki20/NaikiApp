@@ -10,4 +10,18 @@ set depend on the width it's like a sequare so to do that there are two thisngs:
 
 
 2. case 2 (Vertical case) : if you have screen contains two columns of anything you should take into consdration two things
-   first the outter container of column should devied into two part you can see an example if you visit the product screen  
+   first the outter container of column should devied into two part you can see an example if you visit the product screen
+
+
+
+this object gives us two props
+    1. Stack.Navigator => this what we will wrap all our components by it
+    2. Stack.Screen => this refer to the routes
+
+Stack.Screen expect two required props which are name and component
+we can provide a components inside the route for example icons
+
+because the option is inside the route it does not have access to the navigation object so we have to
+     choices to perform navigate here :
+        1. set function that return an jsx inside option props
+        2. separate component to another file which will return jsx

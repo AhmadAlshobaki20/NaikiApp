@@ -1,38 +1,39 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import { useDispatch } from "react-redux";
-import { increase, dicrease, addToCard } from "../action/action";
 const CartListItem = ({ cartItem }) => {
-  const dispatch = useDispatch();
 
-  const increaseQuantity = () => {
-    dispatch(increase());
+  const increase = () => {
+    console.log("increase");
   };
-
-  const decreaseQuantity = () => {};
+  const decrease = () => {
+    console.log("decrase");
+  };
 
   return (
     <View style={styles.container}>
-      <Image source={{ uri: cartItem.product.image }} style={styles.image} />
+      <Image source={{ uri: cartItem.image }} style={styles.image} />
       <View style={styles.contentContainer}>
-        <Text style={styles.name}>{cartItem.product.name}</Text>
+        <Text style={styles.name}>{cartItem.name}</Text>
         <Text style={styles.size}>Size {cartItem.size}</Text>
-
         <View style={styles.footer}>
           <Feather
-            onPress={increaseQuantity}
+            onPress={() => {
+              console.log("increase");
+            }}
             name="minus-circle"
             size={24}
             color="gray"
           />
           <Text style={styles.quantity}>{cartItem.quantity}</Text>
           <Feather
-            onPress={decreaseQuantity}
+            onPress={() => {
+              console.log("decrease");
+            }}
             name="plus-circle"
             size={24}
             color="gray"
           />
-          <Text style={styles.itemTotal}>$320.0</Text>
+          <Text style={styles.itemTotal}>${cartItem.price}</Text>
         </View>
       </View>
     </View>

@@ -306,48 +306,4 @@ A timeless rubber sole combines with a soft sockliner and encapsulated Nike Air 
     
     A timeless rubber sole combines with a soft sockliner and encapsulated Nike Air cushioning for all-day comfort. The rubber outsole offers durable traction on a variety of surfaces.`,
   },
-  {
-    id: "15",
-    image:
-      "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike15.png",
-    images: [
-      "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike15.png",
-    ],
-    name: "Nike Delta",
-    price: 128,
-    sizes: [39, 41, 42, 46],
-    description: `Inspired by the original that debuted in 1985, the Air Jordan 1 Low delivers a clean, classic look that's familiar yet fresh. With an iconic design that blends seamlessly with any fit, these shoes are perfect for taking charge.
-    
-    Advantages:
-    - Encapsulated Air-Sole unit for lightweight cushioning.
-    - Genuine leather on the upper for durability and a premium look.
-    - Solid rubber outsole for greater traction on different types of surfaces.
-    - Color Shown: Palomino/White/Wild Berry
-    - Model: 553558-215
-    - Proven efficacy
-    
-    A timeless rubber sole combines with a soft sockliner and encapsulated Nike Air cushioning for all-day comfort. The rubber outsole offers durable traction on a variety of surfaces.`,
-  },
-  {
-    id: "16",
-    image:
-      "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike16.png",
-    images: [
-      "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike16.png",
-    ],
-    name: "Nike React",
-    price: 157,
-    sizes: [39, 41, 43, 45, 46],
-    description: `Inspired by the original that debuted in 1985, the Air Jordan 1 Low delivers a clean, classic look that's familiar yet fresh. With an iconic design that blends seamlessly with any fit, these shoes are perfect for taking charge.
-    
-    Advantages:
-    - Encapsulated Air-Sole unit for lightweight cushioning.
-    - Genuine leather on the upper for durability and a premium look.
-    - Solid rubber outsole for greater traction on different types of surfaces.
-    - Color Shown: Palomino/White/Wild Berry
-    - Model: 553558-215
-    - Proven efficacy
-    
-    A timeless rubber sole combines with a soft sockliner and encapsulated Nike Air cushioning for all-day comfort. The rubber outsole offers durable traction on a variety of surfaces.`,
-  },
 ];
